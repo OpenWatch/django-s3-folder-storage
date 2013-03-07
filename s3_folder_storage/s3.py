@@ -32,5 +32,5 @@ class AudioRecordingStorage(S3BotoStorage):
     """
 
     def __init__(self, *args, **kwargs):
-        kwargs['location'] = settings.AUDIO_RECORDING_S3_PATH_S3_PATH
+        kwargs['location'] = settings.AUDIO_RECORDING_S3_PATH
         super(DefaultStorage, self).__init__(*args, **kwargs)
