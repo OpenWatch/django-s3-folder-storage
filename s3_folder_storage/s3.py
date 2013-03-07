@@ -15,12 +15,22 @@ class StaticStorage(S3BotoStorage):
         kwargs['location'] = settings.STATIC_S3_PATH
         super(StaticStorage, self).__init__(*args, **kwargs)
 
-class DefaultStorage(S3BotoStorage):
+class MediaStorage(S3BotoStorage):
     """
     Storage for uploaded media files.
-    The folder is defined in settings.DEFAULT_S3_PATH
+    The folder is defined in settings.MEDIA_S3_PATH
     """
 
     def __init__(self, *args, **kwargs):
-        kwargs['location'] = settings.DEFAULT_S3_PATH
+        kwargs['location'] = settings.MEDIA_S3_PATH
+        super(DefaultStorage, self).__init__(*args, **kwargs)
+
+class AudioRecordingStorage(S3BotoStorage):
+    """
+    Storage for uploaded audio recording files.
+    The folder is defined in settings.AUDIO_RECORDING_S3_PATH
+    """
+
+    def __init__(self, *args, **kwargs):
+        kwargs['location'] = settings.AUDIO_RECORDING_S3_PATH_S3_PATH
         super(DefaultStorage, self).__init__(*args, **kwargs)
