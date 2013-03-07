@@ -1,5 +1,5 @@
 """
-    Two classes for media storage
+    Classes for media storage
 """
 
 from storages.backends.s3boto import S3BotoStorage
@@ -23,7 +23,7 @@ class MediaStorage(S3BotoStorage):
 
     def __init__(self, *args, **kwargs):
         kwargs['location'] = settings.MEDIA_S3_PATH
-        super(DefaultStorage, self).__init__(*args, **kwargs)
+        super(MediaStorage, self).__init__(*args, **kwargs)
 
 class AudioRecordingStorage(S3BotoStorage):
     """
@@ -33,4 +33,4 @@ class AudioRecordingStorage(S3BotoStorage):
 
     def __init__(self, *args, **kwargs):
         kwargs['location'] = settings.AUDIO_RECORDING_S3_PATH
-        super(DefaultStorage, self).__init__(*args, **kwargs)
+        super(AudioRecordingStorage, self).__init__(*args, **kwargs)
